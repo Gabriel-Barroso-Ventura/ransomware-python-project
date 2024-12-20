@@ -76,7 +76,17 @@ else:
 
 ### Resultados
 
-- 
+- Após executar o encrypt.py, através do comando ```python encrypt.py``` no terminal, todos os arquivos dentro da pasta e das subpastas onde o executável se encontra serão criptografados.
+
+  ![Alt text](./Images/after_encrypt.png "Optional title")
+
+- Para descriptografar os arquivos novamente devemos executar o decrypt.py através do comando ```python decrypt.py``` no terminal. Após inserir corretamente a chave de criptografia ```secretencryptkey```, o executável irá descriptografar todos os arquivos anteriormente criptografados. Vemos que, caso a chave seja digitada incorretamente, o programa retorna uma mensagem dizendo que a chave está incorreta e aborta o processo de descriptografia.
+
+  ![Alt text](./Images/after_decrypt.png "Optional title")
+
+- Vemos que a criptografia está funcionando corretamente.
+
+  ![Alt text](./Images/encrypt_results.png "Optional title")
 
 ### Considerações Finais
 
@@ -162,7 +172,17 @@ else:
 
 ### Results
 
-- 
+- After running the encrypt.py, using the command ```python encrypt.py``` in the terminal, all files within the folder and subfolders where the executable is located will be encrypted.
+
+  ![Alt text](./Images/after_encrypt.png "Optional title")
+
+- To decrypt the files again we must run decrypt.py using the command ```python decrypt.py``` in the terminal. After correctly entering the encryption key ```secretencryptkey```, the executable will decrypt all previously encrypted files. We see that, if the key is entered incorrectly, the program returns a message saying that the key is incorrect and aborts the decryption process.
+
+  ![Alt text](./Images/after_decrypt.png "Optional title")
+
+- We can verify that encryption is working correctly.
+
+  ![Alt text](./Images/encrypt_results.png "Optional title")
 
 ### Final Considerations
 
