@@ -49,7 +49,7 @@ for root, dir, files in os.walk("./"):
 import os
 import pyaes
 
-secret = input("What the secret key?")
+secret = input("What the secret key? ")
 
 if secret == "secretencryptkey":
     for root, dir, files in os.walk("./"):
@@ -135,7 +135,7 @@ for root, dir, files in os.walk("./"):
 import os
 import pyaes
 
-secret = input("What the secret key?")
+secret = input("What the secret key? ")
 
 if secret == "secretencryptkey":
     for root, dir, files in os.walk("./"):
