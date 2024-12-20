@@ -2,13 +2,13 @@
 
 ### Funcionamento
 
-- O intuito deste projeto é criar um Ransomware que criptografe arquivos presentes na pasta onde o Malware está.
+- O intuito deste projeto é criar um Ransomware que criptografe arquivos presentes na pasta e nas subpastas do local onde o Malware está.
 
 - Este Ransomware é dividido em dois executaveis, um deles terá a função de criptografar os arquivos e o outro terá o objetivo de descriptografa-los futuramente.
 
 ### Código de Criptografia
 
-- O executavel abre todos os arquivos presentes na pasta onde ele se encontra, verificando se já não estão criptografados ou se não são os próprios executaveis.
+- O executavel abre todos os arquivos presentes na pasta e nas subpastas no local onde ele se encontra, verificando se já não estão criptografados ou se não são os próprios executaveis.
 
 - Após abrir cada arquivo presente na pasta ele copia os dados e os criptografa, reescrevendo em seguida o arquivo. Ele também substitui a estenção do arquivo para ".ransomware".
 
@@ -41,7 +41,7 @@ for root, dir, files in os.walk("./"):
 
 - Para que o processo se inicie, o executavel exige que o usuário digite a mesma chave de criptografia que foi utilizada para criptografar os arquivos anteriormente. Se digitado corretamente, o processo se inicia, caso contrário, ele apenas retorna a mensagem "Wrong Key!" para o usuário.
 
-- Após a chave de criptografia ser informada corretamente, o executável abre todos os arquivos presentes na pasta, verificando não são os próprios executáveis e se contém a extensão ".ransomware". Com isso, apenas os arquivos que já haviam sido criptografados serão abertos.
+- Após a chave de criptografia ser informada corretamente, o executável abre todos os arquivos presentes na pasta e nas subpastas no local onde o executavel se encontra, verificando não são os próprios executáveis e se contém a extensão ".ransomware". Com isso, apenas os arquivos que já haviam sido criptografados serão abertos.
 
 - Para cada arquivo aberto, o executável copia dos dados, os descriptografa e reescreve o arquivo. Para finalizar, ele exclui a extensão ".ransomware". Fazendo com que o arquivo volte a seu estado original descriptografado.
 
@@ -88,13 +88,13 @@ else:
 
 ### Functionality
 
-- The purpose of this project is to create a Ransomware that encrypts files present in the folder where the Malware is.
+- The purpose of this project is to create a Ransomware that encrypts files present in the folder and subfolders of the location where the Malware is located.
 
 - This Ransomware is divided into two executables, one of which will have the function of encrypting the files and the other will have the purpose of decrypting them in the future.
 
 ### Encryption Code
 
-- The executable opens all the files in the folder where it is located, checking whether they are already encrypted or whether they are not the executables themselves.
+- The executable opens all files present in the folder and subfolders in the location where it is located, checking whether they are not already encrypted or whether they are not the executables themselves.
 
 - After opening each file in the folder, it copies the data and encrypts it and then rewrites the file. It also replaces the file extension with ".ransomware".
 
@@ -127,7 +127,7 @@ for root, dir, files in os.walk("./"):
 
 - For the process to start, the executable requires the user to enter the same encryption key that was used to encrypt the files previously. If entered correctly, the process starts, otherwise, it simply returns the message "Wrong Key!" to the user.
 
-- After the encryption key is entered correctly, the executable opens all files in the folder, checking if they are not the executables themselves and if they contain the ".ransomware" extension. This means that only files that had already been encrypted will be opened.
+- After the encryption key is entered correctly, the executable opens all files present in the folder and subfolders in the location where the executable is located, checking that they are not the executables themselves and that they contain the ".ransomware" extension. This means that only files that have already been encrypted will be opened.
 
 - For each file opened, the executable copies the data, decrypts it, and rewrites the file. Finally, it deletes the ".ransomware" extension. This returns the file to its original decrypted state.
 
