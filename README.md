@@ -73,6 +73,12 @@ else:
 
 - 
 
+### Considerações Finais
+
+- Diferentemente de um Ransomware real, o desenvolvido neste projeto apenas criptografa os arquivos presentes na pasta onde os executaveis se encontram, logo, CUIDADO com os testes realizados fora de um local de testes apropriado.
+
+- Este projeto ainda está em desenvolvimento e sendo atualizado.
+
 # Ransomware Project in Python (EN-US)
 
 ### Functionality
@@ -147,3 +153,9 @@ else:
 ### Results
 
 - 
+
+### Final Considerations
+
+- Unlike real Ransomware, the one developed in this project only encrypts the files present in the folder where the executables are located, therefore, BE CAREFUL with tests performed outside an appropriate testing location.
+
+- This project is still under development and being updated.
